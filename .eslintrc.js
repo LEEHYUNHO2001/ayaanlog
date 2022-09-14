@@ -5,41 +5,22 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   env: {
     browser: true,
-    es2017: true,
+    es2017: true
   },
-  extends: [
-    'airbnb',
-    'airbnb/hooks',
-    'prettier',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:import/typescript',
-    'next/core-web-vitals',
-  ],
-  plugins: [
-    'react',
-    'jsx-a11y',
-    'import',
-    'prettier',
-    '@typescript-eslint',
-    'simple-import-sort',
-    'testing-library',
-  ],
+  extends: ['airbnb', 'airbnb/hooks', 'prettier', 'plugin:@typescript-eslint/recommended', 'plugin:import/typescript', 'next/core-web-vitals', 'plugin:storybook/recommended'],
+  plugins: ['react', 'jsx-a11y', 'import', 'prettier', '@typescript-eslint', 'simple-import-sort', 'testing-library'],
   ignorePatterns: ['*rc.js', '**/*.config.js', '**/*.setup.js'],
   globals: {},
   rules: {
     // prettier
-    'prettier/prettier': [
-      'warn',
-      {
-        endOfLine: 'auto',
-      },
-    ],
-
+    'prettier/prettier': ['warn', {
+      endOfLine: 'auto'
+    }],
     // TypeScript
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -49,33 +30,37 @@ module.exports = {
     '@typescript-eslint/ban-types': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-shadow': 'warn',
+
     /* 명시적인 return type 작성*/
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-
     // js
     camelcase: 'off',
     'consistent-return': 'off',
-    'no-console': ['warn', { allow: ['error', 'warn'] }],
+    'no-console': ['warn', {
+      allow: ['error', 'warn']
+    }],
 
     /* redux toolkit immer js를 위한 세팅 */
-    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: ['state']
+    }],
     'no-underscore-dangle': 'warn',
     eqeqeq: 'warn',
     radix: 'warn',
     'no-plusplus': 'warn',
     'default-case': 'warn',
     'no-restricted-properties': 'warn',
-
     // v4 changes
     'no-use-before-define': 'off',
     'no-shadow': 'off',
-
     // jsx-a11y
     'jsx-a11y/click-events-have-key-events': 'warn',
     'jsx-a11y/no-noninteractive-element-interactions': 'warn',
-
     // React
-    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+    'react/jsx-filename-extension': ['error', {
+      extensions: ['.tsx']
+    }],
     'react/prop-types': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -85,61 +70,49 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
-
     // import
     'import/no-cycle': 'off',
     'import/prefer-default-export': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        mjs: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: ['/**/*.ts?(x)', '**/test-utils/*'] },
-    ],
-
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      mjs: 'never',
+      jsx: 'never',
+      ts: 'never',
+      tsx: 'never'
+    }],
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: ['/**/*.ts?(x)', '**/test-utils/*']
+    }],
     // simple-import-sort
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    'simple-import-sort/exports': 'error'
   },
-
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
+      '@typescript-eslint/parser': ['.ts', '.tsx']
     },
     'import/resolver': {
       node: {
         extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
-        paths: ['/'],
+        paths: ['/']
       },
       typescript: {
         alwaysTryTypes: true,
-        project: `${__dirname}/tsconfig.json`,
-      },
+        project: `${__dirname}/tsconfig.json`
+      }
     },
-    'import/extensions': ['.js', '.ts', '.mjs', '.jsx', '.tsx'],
+    'import/extensions': ['.js', '.ts', '.mjs', '.jsx', '.tsx']
   },
-
-  overrides: [
-    {
-      files: ['**/*.test.ts?(x)'],
-      rules: {
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
-      extends: ['plugin:testing-library/react'],
+  overrides: [{
+    files: ['**/*.test.ts?(x)'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off'
     },
-    {
-      files: ['**/*.ts?(x)'],
-      parserOptions: {
-        project: ['./tsconfig.json'],
-      },
-    },
-  ],
+    extends: ['plugin:testing-library/react']
+  }, {
+    files: ['**/*.ts?(x)'],
+    parserOptions: {
+      project: ['./tsconfig.json']
+    }
+  }]
 };

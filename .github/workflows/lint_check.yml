@@ -1,4 +1,4 @@
-name: Lint check 
+name: Lint check
 
 on: pull_request
 
@@ -13,4 +13,4 @@ jobs:
           node-version: '16'
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn lint
+      - run: yarn check:lint
